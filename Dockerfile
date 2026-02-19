@@ -3,9 +3,8 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
-# Accept API key as build argument
-ARG GEMINI_API_KEY
-ENV GEMINI_API_KEY=$GEMINI_API_KEY
+# Gemini API Key (injected into the JS bundle at build time by Vite)
+ENV GEMINI_API_KEY=AIzaSyDVGfi_OZVPB5roJJ43vsSzMcMJh60U2D0
 
 # Install dependencies first (better caching)
 COPY package.json package-lock.json ./
